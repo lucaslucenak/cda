@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morfologia</title>
+    <link rel="shortcut icon" href="../assets/favicon.png"/>
+</head>
+
+<body>
+<div id="nav-placeholder"></div>
+<main>
+    <div style="min-height: 450px;">
+        <div>
+            <div>
+                <div style="width:300px; height: 450px;">
+                    <div>
+                        <h5>Imagem Original</h5>
+                        <div id="original-img" style="margin-bottom: 20px"></div>
+                        <div style="width: 256px; height: 50px;">
+                            <select aria-label="Selecionar filtro" id="img-selector">
+                                <optgroup label="P&B">
+                                    <option selected value="0">Fingerprint</option>
+                                    <option value="1">Holes</option>
+                                    <option value="2">Texto</option>
+                                    <option value="3">Mapa</option>
+                                </optgroup>
+                                <optgroup label="Cinza">
+                                    <option value="4">Lena</option>
+                                    <option value="5">Airplane</option>
+                                    <option value="6">Cameraman</option>
+                                    <option value="7">Supernova</option>
+                                    <option value="8">Sea</option>
+                                    <option value="9">Tomografia</option>
+                                    <option value="10">Particulas</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div style="width:300px; height: 450px;">
+                    <div>
+                        <h5>Transformação</h5>
+                        <div style="width: 280px; height: 135px;">
+                            <select size="5" aria-label="Selecionar filtro" id="input-filter">
+                                <option selected value="0">Original</option>
+                                <optgroup label="P&B">
+                                    <option value="1">Complemento</option>
+                                    <option value="2">Erosão</option>
+                                    <option value="3">Dilatação</option>
+                                    <option value="4">Abertura</option>
+                                    <option value="5">Fechamento</option>
+                                    <option value="6">Contorno Externo</option>
+                                    <option value="7">Contorno Interno</option>
+                                    <option value="8">Gradiente</option>
+                                    <option value="9">Afinamento</option>
+                                </optgroup>
+                                <optgroup label="Cinza">
+                                    <option value="10">Erosão</option>
+                                    <option value="11">Dilatação</option>
+                                    <option value="12">Abertura</option>
+                                    <option value="13">Fechamento</option>
+                                    <option value="14">Gradiente</option>
+                                    <option value="15">Top-Hat</option>
+                                    <option value="16">Bottom-Hat</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div style="width: 280px;">
+                            <form id="input-matrix" class="text-center" role="form">
+                                <input type="number" name="array[]" value="0" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <input type="number" name="array[]" value="1" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <input type="number" name="array[]" value="0" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <br>
+                                <input type="number" name="array[]" value="1" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <input type="number" name="array[]" value="1" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <input type="number" name="array[]" value="1" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <br>
+                                <input type="number" name="array[]" value="0" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <input type="number" name="array[]" value="1" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                                <input type="number" name="array[]" value="0" min="0" max="1" step="1"
+                                       style="width: 65px; text-align:center">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div style="width:300px; height: 450px;">
+                    <div>
+                        <h5>Imagem Processada</h5>
+                        <div id="processed-img" style="margin-bottom: 20px"></div>
+                        <div role="group">
+                            <button type="button" id="apply-again-btn">
+                                Reusar
+                            </button>
+                            <button type="button" id="download-btn">
+                                Baixar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    fetch('navbar.html')
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (body) {
+            document.getElementById('nav-placeholder').innerHTML = body;
+            document.getElementById('morphology-li').classList.add('active');
+        });
+</script>
+<script src="../js/lib/p5.min.js"></script>
+<script src="../js/src/utils.js"></script>
+<script src="../js/src/morphology.js"></script>
+</body>
+</html>

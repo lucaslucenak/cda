@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Projeto CG</title>
+
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/p5.min.js"></script>
+    <script src="./js/sketch-composicao-3d.js"></script>
+    <script src="js/algoritmos.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container"> <a href="#">Projeto CG</a>
+            <div id="navbarSupportedContent">
+                <ul>
+                    <li>
+                        <a href="#" id="dda-ponto-medio" role="button" data-bs-toggle="dropdown" aria-expanded="false">Formas</a>
+                        <ul aria-labelledby="dda-ponto-medio">
+                            <li><a href="formas-circulo.html">Círculo</a></li>
+                            <li><a href="formas-elipse.html">Elipse</a></li>
+                            <li><a href="formas-reta.html">Reta</a></li>
+                        </ul>
+                    </li>
+                    <li> 
+                        <a href="batimento-do-coracao.html">Batimento do Coração</a>
+                    </li>
+                    <li> 
+                        <a aria-current="page" href="cohen-suterland.html">Cohen-Suterland</a> 
+                    </li>
+                    <li>
+                        <a href="#" id="transformacoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Transformações</a>
+                        <ul aria-labelledby="transformacoes">
+                            <li><a href="transformacoes-2d.html">2D</a></li>
+                            <li><a href="transformacoes-3d.html">3D</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="composicao" role="button" data-bs-toggle="dropdown" aria-expanded="false">Composicao</a>
+                        <ul aria-labelledby="composicao">
+                            <li><a href="composicao-2d.html">2D</a></li>
+                            <li><a href="composicao-3d.html">3D</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                    <h1>Composicao transformacoes-3d</h1>
+                    <p>Neste software, demonstraremos as transformacoes</p>
+                <div>
+                    <div class="controles">
+                        <h5>Configurações da figura:</h5>
+
+                        <div id="pontos-figura">
+                            <div>
+                                <div>
+                                    <input id="x-figura" name="x-figura" type="text" placeholder="X da Origem">
+                                </div>
+                                <div>
+                                    <input id="y-figura" name="y-figura" type="text" placeholder="Y da Origem">
+                                </div>
+                                <div>
+                                    <input id="z-figura" name="z-figura" type="text" placeholder="Z da Origem">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <input id="comprimento" name="comprimento" type="text" placeholder="Comprimento">
+                                </div>
+                                <div>
+                                    <input id="largura" name="largura" type="text" placeholder="Largura">
+                                </div>
+                                <div>
+                                    <input id="altura" name="altura" type="text" placeholder="Altura">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row botao">
+                            <div>
+                                <button id="desenhar-figura">Desenhar Figura</button>
+                            </div>
+                        </div>
+
+                        <h5>Transformações</h5>
+                        <div>
+                            <ul>
+                                <li>Escala (SX,SY,SZ)</li>
+                                <li>Translacao (TX,TY,TZ)</li>
+                                <li>Rotacao (graus,eixo)</li>
+                                <li>Cisalhamento(valor cisalhamento 1 , valor cisalhamento 2,eixo)</li>
+                                <li>Reflexao (plano)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <input class="form-check-input" type="checkbox" id="deixa-rastro" checked>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Deixar rastro</label>
+                        </div>
+                        <label for="slide-eixo-x">Rotacao X</label>
+                        <input type="range" class="form-range" min="0" max="90" step="1" id="slider-eixo-x">
+                        <label for="slide-eixo-y">Rotacao Y</label>
+                        <input type="range" class="form-range" min="0" max="90" step="1" id="slider-eixo-y">
+                        <label for="slide-eixo-z">Rotacao Z</label>
+                        <input type="range" class="form-range" min="0" max="90" step="1" id="slider-eixo-z">
+                        <div id="opcoes-transformacao">
+                            <div class="row">
+                                <div>
+                                    <input name="transformacoes[]" type="text" placeholder="Transformacao">
+                                </div>
+                                <div>
+                                    <input name="valor1-transformacoes[]" type="text" placeholder="Valor 1">
+                                </div>
+                                <div>
+                                    <input name="valor2-transformacoes[]" type="text" placeholder="Valor 2">
+                                </div>
+                                <div>
+                                    <input name="valor3-transformacoes[]" type="text" placeholder="Valor 3">
+                                </div>
+                            </div>
+                        </div>
+                        <div role="group" aria-label="Basic mixed styles example">
+                            <button type="button" onclick="removerCampoTransformacao()">-</button>
+                            <button type="button" onclick="adicionarCampoTransformacao()">+</button>
+                        </div>
+
+
+                        <div class="row botao">
+                            <div>
+                                <button id="transformar">Transformar</button>
+                            </div>
+                        </div>
+
+
+                        <div class="row botao">
+                            <div class="col">
+                                <button id="limpar">Limpar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div id="screen"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Projeto CG</title>
+
+    <link rel="shortcut icon" href="images/favicon.png" />
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="js/p5.min.js"></script> 
+    <script src="js/sketch-formas-circulo.js"></script> 
+    <script src="js/algoritmos.js"></script>
+</head>
+
+<body>
+    
+    <nav>
+        <div class="container"> <a href="#">Projeto CG</a>
+            <div id="navbarSupportedContent">
+                <ul>
+                    <li>
+                        <a href="#" id="dda-ponto-medio" role="button" data-bs-toggle="dropdown" aria-expanded="false">Formas</a>
+                        <ul aria-labelledby="dda-ponto-medio">
+                            <li><a href="formas-circulo.html">Círculo</a></li>
+                            <li><a href="formas-elipse.html">Elipse</a></li>
+                            <li><a href="formas-reta.html">Reta</a></li>
+                        </ul>
+                    </li>
+                    <li> 
+                        <a href="batimento-do-coracao.html">Batimento do Coração</a>
+                    </li>
+                    <li> 
+                        <a aria-current="page" href="cohen-suterland.html">Cohen-Suterland</a> 
+                    </li>
+                    <li>
+                        <a href="#" id="transformacoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Transformações</a>
+                        <ul aria-labelledby="transformacoes">
+                            <li><a href="transformacoes-2d.html">2D</a></li>
+                            <li><a href="transformacoes-3d.html">3D</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="composicao" role="button" data-bs-toggle="dropdown" aria-expanded="false">Composicao</a>
+                        <ul aria-labelledby="composicao">
+                            <li><a href="composicao-2d.html">2D</a></li>
+                            <li><a href="composicao-3d.html">3D</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<main>
+    <div class="container-fluid">
+        <div class="container">
+            <div>
+                <h1>Desenho por varredura de um círculo</h1>
+                <p>Que passos são exigidos para gerar por varredura um círculo usando o método da equação explicita, método trigonométrico e do ponto médio?  Programe todos.</p>
+            </div>
+            <div>
+                <div class="controles">
+                    <h5>Configurações:</h5>
+                    <div>
+                        <div>
+                            <input id="x_origem" type="text" placeholder="X da Origem">
+                        </div>
+                        <div>
+                            <input id="y_origem" type="text" placeholder="Y da Origem">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input id="raio" type="text" placeholder="Raio">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div>
+                            <select id="algoritmo">
+                                <option selected>Selecione o algoritmo</option>
+                                <option value="ponto-medio">Ponto Médio</option>
+                                <option value="equacao-explicita">Equação explícita</option>
+                                <option value="metodo-trigonometrico">Método trigonométrico</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row botao">
+                        <div>
+                            <button id="desenhar-circunferencia">Desenhar círculo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="row botao">
+                        <div>
+                            <button id="limpar">Limpar</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div>
+                    <div id="screen"></div>
+                    <!-- <ul id="coordenadas-mouse" class="list-inline">
+                        <li class="list-inline-item"><b>X:</b></li>
+                        <li id="mouseX" class="list-inline-item">0</li>
+                        <li class="list-inline-item"><b>Y:</b></li>
+                        <li id="mouseY" class="list-inline-item">0</li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    
+</body>
+</html>
